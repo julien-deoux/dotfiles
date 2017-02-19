@@ -2,13 +2,20 @@ Config { font = "xft:Roboto Mono for Powerline:size=8:antialias=true"
        , bgColor = "#181818"
        , fgColor = "#a1a1a1"
        , position = BottomW L 100
-       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+       , commands = [ Run Cpu ["-L","3","-H","50","--normal","#6ca90e","--high","#c81111"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
                     , Run Date "%a %b %_d %l:%M" "date" 10
                     , Run StdinReader
+					, Run BatteryP ["BAT1"] 
+						[ "-t", "Batt: <left>%"
+						, "-L", "10", "-H", "80", "-p", "3"
+						, "--", "-O", "<fc=#6ca90e>On</fc> - ", "-i", ""
+						, "-L", "-15", "-H", "-5"
+						, "-l", "#c81111", "-m", "blue", "-h", "#6ca90e"
+						] 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% | %swap%    <fc=#a1a1a1>%date%</fc>"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %swap% | %battery%    <fc=#a1a1a1>%date%</fc>"
        }
