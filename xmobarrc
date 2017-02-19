@@ -1,0 +1,14 @@
+Config { font = "xft:Roboto Mono for Powerline:size=8:antialias=true"
+       , bgColor = "#181818"
+       , fgColor = "#a1a1a1"
+       , position = BottomW L 100
+       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %swap%    <fc=#a1a1a1>%date%</fc>"
+       }
