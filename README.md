@@ -15,4 +15,4 @@ In those examples, "$DOTFILES_DIR" is the place where you cloned this repo.
 - git `ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig`
 - powerline fonts (from the AUR, NOT the official repos)
 - vim `ln -s $DOTFILES_DIR/vimrc ~/.vimrc`
-
+- vim plugins `ln -s $DOTFILES_DIR/vim ~/.vim`
