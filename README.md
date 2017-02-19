@@ -2,17 +2,19 @@
 
 You know what this is.
 
-### Used software
-
-In those examples, "$DOTFILES_DIR" is the place where you cloned this repo.
+### Dependencies
 
 - arch Llnux
-- xorg `ln -s $DOTFILES_DIR/xinitrc ~/.xinitrc`
-- bash `ln -s $DOTFILES_DIR/bashrc ~/.bashrc`
-- xmonad `ln -s $DOTFILES_DIR/xmonad.hs ~/.xmonad/xmonad.hs`
-- xmobar `ln -s $DOTFILES_DIR/xmobarrx ~/.xmobarrc`
-- termite `ln -s $DOTFILES_DIR/termite ~/.config/termite/config`
-- git `ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig`
+- xorg
+- bash
+- xmonad
+- xmobar
+- termite
+- git
 - powerline fonts (from the AUR, NOT the official repos)
-- vim `ln -s $DOTFILES_DIR/vimrc ~/.vimrc`
-- vim plugins `ln -s $DOTFILES_DIR/vim ~/.vim`
+- vim + plugins
+
+### Install guide
+
+Those are only configuration files, so no heavy lifting is required.
+The script `install.sh` creates all the necessary symbolic links. If one of those files already exists on your computer, it will fail.
