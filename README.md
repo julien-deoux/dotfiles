@@ -2,7 +2,7 @@
 
 You know what this is.
 
-### Dependencies
+### Software used
 
 - arch Llnux
 - xorg
@@ -12,7 +12,10 @@ You know what this is.
 - termite
 - git
 - powerline fonts (from the AUR, NOT the official repos)
-- vim + plugins
+- vim + plugins:
+  - syntastic
+  - airline
+  - ctrl-p
 
 ### Install guide
 

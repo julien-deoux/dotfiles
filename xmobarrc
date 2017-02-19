@@ -1,11 +1,11 @@
 Config { font = "xft:Roboto Mono for Powerline:size=8:antialias=true"
        , bgColor = "#181818"
        , fgColor = "#a1a1a1"
-       , position = BottomW L 100
+       , position = TopW L 100
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","#6ca90e","--high","#c81111"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
-                    , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run Date "%a %b %_d %H:%M" "date" 10
                     , Run StdinReader
 					, Run BatteryP ["BAT1"] 
 						[ "-t", "Batt: <left>%"

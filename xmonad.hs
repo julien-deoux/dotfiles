@@ -22,7 +22,7 @@ lemakiPP = xmobarPP
 	}
 
 lemakeys = 
-	[ ((mod4Mask .|. shiftMask, xK_n), spawn "chromium")
+	[ ((mod4Mask .|. shiftMask, xK_n), spawn "min")
 	, ((mod4Mask .|. shiftMask, xK_f), spawn "thunar")
 	, ((mod4Mask, xK_Pause), spawn "i3lock -i /home/julien/Pictures/Wallpapers/i3lock.png && sleep")
 	, ((mod4Mask .|. shiftMask, xK_Pause), spawn "poweroff")
