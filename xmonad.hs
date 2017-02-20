@@ -24,10 +24,14 @@ lemakiPP = xmobarPP
 lemakeys = 
 	[ ((mod4Mask .|. shiftMask, xK_n), spawn "min")
 	, ((mod4Mask .|. shiftMask, xK_f), spawn "thunar")
+	, ((mod4Mask .|. shiftMask, xK_b), spawn "brave")
 	, ((mod4Mask, xK_Pause), spawn "i3lock -i /home/julien/Pictures/Wallpapers/i3lock.png && sleep")
 	, ((mod4Mask .|. shiftMask, xK_Pause), spawn "poweroff")
 	, ((0, 0x1008FF02), spawn "xbacklight -inc 5") -- xF86XK_MonBrightnessUp
-	, ((0, 0x1008FF03), spawn "xbacklight -dec 5") -- xF86XK_MonBrightnessDown
+	, ((0, 0x1008FF03), spawn "xbacklight -dec 3") -- xF86XK_MonBrightnessDown
+	, ((0, 0x1008FF11), spawn "amixer sset Master 3%-") -- xF86XK_AudioLowerVolume
+	, ((0, 0x1008FF13), spawn "amixer sset Master 5%+") -- xF86XK_AudioRaiseVolume
+	, ((0, 0x1008FF12), spawn "amixer sset Master toggle") -- xF86XK_AudioMute
 	]
 
 main = do
