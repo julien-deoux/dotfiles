@@ -1,6 +1,7 @@
-Config { font = "xft:Roboto Mono for Powerline:size=8:antialias=true"
+Config { font = "xft:Roboto:size=8:antialias=true"
        , bgColor = "#181818"
        , fgColor = "#a1a1a1"
+	   , alpha = 196
        , position = TopW L 100
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","#6ca90e","--high","#c81111"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
