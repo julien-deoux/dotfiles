@@ -1,3 +1,5 @@
 [user]
 	email = julien.deoux@telecomnancy.net
 	name = Julien Déoux
+[core]
+	editor = vim
