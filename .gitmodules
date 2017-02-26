@@ -19,12 +19,6 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule "vim/bundle/vim-airline-themes"]
-	path = vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule "vim/bundle/vim-clang"]
 	path = vim/bundle/vim-clang
 	url = https://github.com/justmao945/vim-clang.git
@@ -34,3 +28,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/csv.vim"]
+	path = vim/bundle/csv.vim
+	url = https://github.com/chrisbra/csv.vim.git

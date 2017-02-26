@@ -7,6 +7,18 @@
 execute pathogen#infect()
 
 
+" -------------------
+"   Typing behavior  
+" -------------------
+
+set smartindent
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+set tabstop=4
+set shiftwidth=4
+autocmd Filetype text,tex,plaintex set textwidth=80
+
+
 " --------------
 "   Appearance  
 " --------------
@@ -19,18 +31,6 @@ autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 set list
 set listchars=tab:\|\ 
-
-
-" -------------------
-"   Typing behavior  
-" -------------------
-
-set smartindent
-filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
-set tabstop=4
-set shiftwidth=4
-autocmd Filetype text,tex,plaintex set textwidth=80
 
 
 " ---------------
