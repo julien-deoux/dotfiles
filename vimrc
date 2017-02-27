@@ -6,24 +6,14 @@
 
 execute pathogen#infect()
 
-
-" -------------------
-"   Typing behavior  
-" -------------------
-
-set smartindent
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
-set tabstop=4
-set shiftwidth=4
-autocmd Filetype text,tex,plaintex set textwidth=80
-
+syntax on
 
 " --------------
 "   Appearance  
 " --------------
 
-syntax on
+set t_Co=256
 colorscheme peachpuff
 set relativenumber
 set number
@@ -31,6 +21,17 @@ autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 set list
 set listchars=tab:\|\ 
+
+
+" -------------------
+"   Typing behavior  
+" -------------------
+
+set smartindent
+set omnifunc=syntaxcomplete#Complete
+set tabstop=4
+set shiftwidth=4
+autocmd Filetype text,tex,plaintex set textwidth=80
 
 
 " ---------------
@@ -56,7 +57,7 @@ nnoremap <right> :vertical resize +5 <CR>
 nnoremap <up> :resize -5 <CR>
 nnoremap <down> :resize +5 <CR>
 
-" Better oasting
+" Better pasting
 set pastetoggle=<F2>
 
 
@@ -101,3 +102,9 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " -------------
 
 let g:clang_cpp_options = '-std=c++14'
+
+" ---------
+"   CtrlP
+" ---------
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
