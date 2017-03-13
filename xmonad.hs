@@ -25,7 +25,10 @@ lemakeys =
 	[ ((mod4Mask .|. shiftMask, xK_n), spawn "min")
 	, ((mod4Mask .|. shiftMask, xK_f), spawn "thunar")
 	, ((mod4Mask .|. shiftMask, xK_b), spawn "chromium")
+	, ((mod4Mask .|. shiftMask, xK_e), spawn "atom")
 	, ((mod4Mask .|. shiftMask, xK_a), spawn "non-session-manager")
+	, ((mod4Mask .|. shiftMask, xK_k), spawn "kdenlive")
+	, ((mod4Mask, xK_d), spawn "rofi -show run")
 	, ((mod4Mask, xK_Pause), spawn "i3lock -i /home/julien/Pictures/Wallpapers/i3lock.png && sleep")
 	, ((mod4Mask .|. shiftMask, xK_Pause), spawn "poweroff")
 	, ((0, 0x1008FF02), spawn "xbacklight -inc 5") -- xF86XK_MonBrightnessUp
