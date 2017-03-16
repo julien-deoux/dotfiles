@@ -4,7 +4,7 @@ font = Roboto Mono for Powerline 8
 [colors]
 
 # special
-background = rgba(24, 24, 24, 0.75)
+background = rgba(24, 24, 24, 0.6)
 foreground = #a1a1a1
 foreground_bold = #a1a1a1
 cursor = #6ca90e
@@ -40,4 +40,3 @@ color14 = #11cb7a
 #white
 color7 = #505050
 color15 = #a1a1a1
-
