@@ -31,8 +31,8 @@ default_border none
 default_floating_border none
 
 # Gapsa
-gaps inner 40
-gaps outer 16
+gaps inner 35
+gaps outer 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -67,10 +67,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -178,16 +178,20 @@ bindsym $mod+r mode "resize"
 # Applications
 bindsym $mod+Shift+b exec firefox
 bindsym $mod+Shift+f exec thunar
+bindsym $mod+Shift+l exec betterlockscreen -l blur
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command i3status
-# }
+bar {
+	i3bar_command i3bar -t
+        status_command i3status
+	colors {
+		background #00000000
+	}
+}
 
 exec --no-startup-id compton -b
 exec --no-startup-id ~/.fehbg
-exec --no-startup-id polybar lemaki
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift
 exec --no-startup-id cadence --minimized

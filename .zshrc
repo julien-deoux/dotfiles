@@ -17,10 +17,12 @@ alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias pac='sudo pacman -S'
+alias pacy='sudo pacman -Sy'
 alias pacs='pacman -Ss'
 alias pacu='sudo pacman -Syu'
 alias pacr='sudo pacman -Rc'
 alias g='git'
+alias vim='nvim'
 
 # Theming
 autoload -Uz promptinit
