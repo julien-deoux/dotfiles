@@ -18,11 +18,15 @@ alias ll='ls -l'
 alias la='ls -a'
 alias pac='sudo pacman -S'
 alias pacy='sudo pacman -Sy'
-alias pacs='pacman -Ss'
 alias pacu='sudo pacman -Syu'
-alias pacr='sudo pacman -Rc'
+alias pacs='pacman -Ss'
+alias pacr='sudo pacman -Rsc'
+alias paci='pacman -Qi'
+alias zyp='sudo zypper install'
+alias zypu='sudo zypper update'
+alias zyps='zypper search'
+alias zypr='sudo zypper remove'
 alias g='git'
-alias vim='nvim'
 
 # Theming
 autoload -Uz promptinit
