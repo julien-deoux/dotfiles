@@ -30,4 +30,3 @@ null_ls.setup({
     end
   end,
 })
-

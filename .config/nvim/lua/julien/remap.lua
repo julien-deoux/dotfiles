@@ -1,7 +1,6 @@
 -- Open folder
-vim.keymap.set("n", "<C-o>", vim.cmd.Ex)
-vim.keymap.set("v", "<C-o>", vim.cmd.Ex)
-vim.keymap.set("i", "<C-o>", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>o", vim.cmd.Ex)
+vim.keymap.set("v", "<leader>o", vim.cmd.Ex)
 
 -- Go to previous buffer
 vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
