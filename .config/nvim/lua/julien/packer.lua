@@ -1,71 +1,109 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
+end
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
+  augroup end
+]])
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+local packer = require("packer")
 
-  use({
-    'sainnhe/edge',
-    as = 'edge',
-    config = function()
-      vim.cmd('colorscheme edge')
-      vim.cmd [[hi link VirtualTextError Red]]
-      vim.cmd [[hi link VirtualTextWarning Yellow]]
-    end
-  })
+return packer.startup(function(use)
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
 
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  use('nvim-treesitter/playground')
-  use('ThePrimeagen/harpoon')
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
+	-- Core functions for other plugins
+	use("nvim-lua/plenary.nvim")
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },             -- Required
-      { 'williamboman/mason.nvim' },           -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+	-- Color scheme
+	use("sainnhe/sonokai")
 
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },         -- Required
-      { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-      { 'hrsh7th/cmp-buffer' },       -- Optional
-      { 'hrsh7th/cmp-path' },         -- Optional
-      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-      { 'hrsh7th/cmp-nvim-lua' },     -- Optional
+	-- Quick split navigation
+	use("christoomey/vim-tmux-navigator")
 
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },             -- Required
-      { 'rafamadriz/friendly-snippets' }, -- Optional
-    }
-  }
+	-- Maximize/restore current split
+	use("szw/vim-maximizer")
 
-  use('jose-elias-alvarez/null-ls.nvim')
-  use('MunifTanjim/prettier.nvim')
+	-- Surround motion with ys
+	use("tpope/vim-surround")
 
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
+	-- Comment with gc
+	use("numToStr/Comment.nvim")
 
-  use {
-    "smjonas/inc-rename.nvim",
-    config = function()
-      require("inc_rename").setup()
-    end,
-  }
+	-- File explorer
+	use("nvim-tree/nvim-tree.lua")
 
-  use { "chrisgrieser/nvim-genghis", requires = "stevearc/dressing.nvim" }
+	-- Icons
+	use("kyazdani42/nvim-web-devicons")
+
+	-- Status line
+	use("nvim-lualine/lualine.nvim")
+
+	-- Fuzzy finder
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+
+	-- Autocompletion
+	use("hrsh7th/nvim-cmp") -- Autocompletion engine
+	use("hrsh7th/cmp-buffer") -- Text from buffer
+	use("hrsh7th/cmp-path") -- File paths
+
+	-- Snippets
+	use("L3MON4D3/LuaSnip") -- Snippet engine
+	use("saadparwaiz1/cmp_luasnip") -- Snippets in autocompletion
+
+	-- Manage LSP servers
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+
+	-- Configure LSP servers
+	use("neovim/nvim-lspconfig")
+	use("hrsh7th/cmp-nvim-lsp") -- LSP autocompletion
+	use({ "glepnir/lspsaga.nvim", branch = "main" })
+	use("jose-elias-alvarez/typescript.nvim")
+
+	-- Formatting
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("jayp0521/mason-null-ls.nvim")
+
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	})
+
+	-- Auto closing
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
+
+	-- Git integration
+	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
+
+	-- Higlight color codes
+	use("norcalli/nvim-colorizer.lua")
+
+	-- File bookmarks
+	use("theprimeagen/harpoon")
+
+	-- Navigate JSON files
+	use("mogelbrod/vim-jsonpath")
+
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
