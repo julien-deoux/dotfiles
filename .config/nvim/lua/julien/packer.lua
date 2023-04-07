@@ -103,6 +103,13 @@ return packer.startup(function(use)
 	-- Navigate JSON files
 	use("mogelbrod/vim-jsonpath")
 
+	use({
+		"gennaro-tedesco/nvim-jqx",
+		ft = { "json", "yaml" },
+	})
+
+	use("rest-nvim/rest.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

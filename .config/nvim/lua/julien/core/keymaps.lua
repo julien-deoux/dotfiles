@@ -55,3 +55,6 @@ set("n", "<C-p>", ":Telescope git_files<cr>")
 -- fugitive
 set("n", "<leader>gs", cmd.Git)
 set("n", "g ", ":Git ")
+
+-- rest.nvim
+set("n", "<leader>rq", "<Plug>RestNvim")
